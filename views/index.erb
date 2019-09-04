@@ -1,2 +1,61 @@
 <h2>Welcome to pizza shop</h2>
 <button class="btn btn-primary" onClick="something()">Click me!</button>
+<hr/><br/>
+
+<!--<div> Совмещаю вывод продуктов
+    <% @products.each do |i| %>
+        <%= i.title %><br />
+        <%= i.description %><br />
+        <%= i.price %> ₽<br />
+        <%= i.size %> см.<br />
+        <img src="<%= i.path_to_image %>" width="150" /><br />    
+    <% end %>
+</div>
+
+<div class="container"> С сеткой бутстрап
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>-->
+
+<div class="container">
+    <div class="row align-items-start">
+        <% @products.each do |i| %>
+            <div class="col-sm-4 mb-4">
+
+                    <div class="row bg-light ml-0 mr-0" style="border-radius: 10px 10px 0px 0px">
+                <img src="<%= i.path_to_image %>" width="100%" />
+                    </div>
+
+                    <div class="row bg-light mx-0 my-0">
+                <h5><%= i.title %></h5>
+                    </div>
+                    
+                    <div class="row bg-light mx-0 my-0">
+                <%= i.description %>
+                    </div>
+                    
+                    <div class="row bg-light mx-0 my-0">
+                ⌀<%= i.size %> см
+                    </div>
+
+                    <div class="row bg-light mx-0 my-0">
+                <h5><%= i.price %> ₽</h5>
+                    </div>
+                    
+                    <div class="row bg-light justify-content-center mx-0 my-0 pb-3" style="border-radius: 0px 0px 10px 10px">
+                <button type="button" class="btn btn-outline-success">Выбрать</button>
+                    </div>
+
+            </div>
+        <% end %>
+    </div>
+</div>
