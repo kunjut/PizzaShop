@@ -17,3 +17,17 @@ function add_to_cart(id)
     x = x * 1 + 1;
     window.localStorage.setItem(key, x);
 }
+
+function check_basket() {
+
+    var total = 0;
+
+    for (var i = 0; i<localStorage.length; i++) {
+    
+        var key = localStorage.key(i);
+        var z = localStorage.getItem(key);
+        
+        total = total + z*1
+    }
+    alert(total);
+}
