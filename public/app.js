@@ -16,18 +16,24 @@ function add_to_cart(id)
     var x = window.localStorage.getItem(key);
     x = x * 1 + 1;
     window.localStorage.setItem(key, x);
+
+    alert('В корзине ' + check_basket() + ' позиций');
 }
 
 function check_basket() {
 
     var total = 0;
 
-    for (var i = 0; i<localStorage.length; i++) {
-    
-        var key = localStorage.key(i);
-        var z = localStorage.getItem(key);
-        
-        total = total + z*1
+    for (var i = 0; i<window.localStorage.length; i++) {
+        // получаем ключ
+        var key = window.localStorage.key(i);
+        // получаем значение ключа, аналог в ruby x = hh[key]
+        var z = window.localStorage.getItem(key);
+        // проверим ключ по префиксу product_
+        if(key.indexOf('product_') == 0) {
+            total = total + z*1
+        }
     }
-    alert(total);
+    //alert(total);
+    return total;
 }
