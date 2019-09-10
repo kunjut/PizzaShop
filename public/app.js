@@ -17,7 +17,7 @@ function add_to_cart(id)
     x = x * 1 + 1;
     window.localStorage.setItem(key, x);
 
-    alert('В корзине ' + check_basket() + ' позиций');
+    update_orders_input();
 }
 
 function check_basket() {
@@ -34,8 +34,14 @@ function check_basket() {
             total = total + z*1
         }
     }
-    //alert(total);
     return total;
+}
+
+function update_orders_input() {
+    // получаем строчку
+    var orders = check_orders();
+    // обращаемся к orders_input и устанавливаем значение
+    $('#orders_input').val(orders);
 }
 
 function check_orders() {
