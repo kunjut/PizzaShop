@@ -18,6 +18,7 @@ function add_to_cart(id)
     window.localStorage.setItem(key, x);
 
     update_orders_input();
+    update_orders_button();
 }
 
 function check_basket() {
@@ -42,6 +43,11 @@ function update_orders_input() {
     var orders = check_orders();
     // обращаемся к orders_input и устанавливаем значение
     $('#orders_input').val(orders);
+}
+
+function update_orders_button() {
+    var text = 'Cart (' + check_basket() + ')';
+    $('#orders_button').val(text);
 }
 
 function check_orders() {
