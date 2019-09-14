@@ -56,7 +56,7 @@ function check_orders() {
         var key = window.localStorage.key(i);
         var z = window.localStorage.getItem(key);
         if(key.indexOf('product_') == 0) {
-            orders = orders + key + '=' + z + ',';  
+            orders = orders + key + '=' + z + ', ';  
         }
     }
     return orders;
