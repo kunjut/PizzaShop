@@ -20,7 +20,15 @@ end
 
 post '/cart' do
 	orders_input = params[:orders]
-	@orders = parse_orders_input(orders_input)
+	@items = parse_orders_input(orders_input)
+
+	@items.each do |item|
+	# item у нас [id, cnt] поэтому
+	# берем id по нему ищем и замещаем item[0]
+		item[0] = Product.find(item[0])
+		
+	end
+
 	erb :cart
 end
 
