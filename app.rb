@@ -51,3 +51,8 @@ def parse_orders_input orders_input
     
     return arr
 end
+
+post '/place_order' do
+	into_db = Order.new params[:order]
+	into_db.save
+end
