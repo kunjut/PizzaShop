@@ -1,0 +1,39 @@
+<br /><h2>All orders in shop</h2><br/>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Adress</th>
+            <th scope="col">Orders_input</th>
+            <th scope="col">Created_at</th>
+            <th scope="col">Updated_at</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @all_orders.each do |order| %>
+        <tr>
+            <th scope="row"><%= order.id %></th>
+            <td><%= order.name %></td>
+            <td><%= order.phone %></td>
+            <td><%= order.adress %></td>
+            <td>
+                <% items = parse_orders_input(order.orders_input) %>
+                
+                <% items.each do |item| %>
+                <% item[0] = Product.find(item[0])%>
+                <% end %>
+                
+                <% items.each do |item| %>
+                    «<%= item[0].title %>» -
+                    <%= item[1] %><br /> 
+                <% end %>
+            </td>
+            <td><%= order.created_at %></td>
+            <td><%= order.updated_at %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
