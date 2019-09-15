@@ -55,4 +55,6 @@ end
 post '/place_order' do
 	into_db = Order.new params[:order]
 	into_db.save
+
+	erb "Order accepted"
 end

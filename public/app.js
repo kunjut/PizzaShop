@@ -69,3 +69,7 @@ function remove_item(id) {
     update_orders_input();
     update_orders_button();
 }*/
+
+function clear_basket() {
+    window.localStorage.clear();
+}
