@@ -19,14 +19,13 @@ get '/about' do
 end
 
 post '/cart' do
-	orders_input = params[:orders]
-	@items = parse_orders_input(orders_input)
-
+	@orders_input = params[:orders]
+	@items = parse_orders_input(@orders_input)
+#	@xxx = Product.find(1).attributes
 	@items.each do |item|
 	# item у нас [id, cnt] поэтому
 	# берем id по нему ищем и замещаем item[0]
 		item[0] = Product.find(item[0])
-		
 	end
 
 	erb :cart

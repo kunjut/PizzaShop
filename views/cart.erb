@@ -1,5 +1,5 @@
 <br /><h2>In your cart</h2><br />
-
+<!-- <%= @xxx %> -->
 <table class="table">
   <thead>
     <tr>
@@ -19,7 +19,7 @@
         <td><%= item[0].title %></td>
         <td><%= item[0].size %></td>
         <td><%= item[0].price %> ₽</td>
-        <td><%= item[1] %></td>
+        <td><%= item[1] %><!--input type="submit" onClick="remove_item(<%= index %>)" class="btn btn-sm btn-warning" value="x"/--></td>
         <% total_price += item[0].price * item[1].to_i %>
         <% total_quantity += item[1].to_i %>
     </tr>
@@ -33,3 +33,20 @@
     </tr>
   </tbody>
 </table>
+
+<form action="/place_order" method="POST">
+  <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>">
+  <div class="form-group">
+      <label>Name</label>
+      <input type="text" name="order[name]" class="form-control" placeholder="Your name" value="<%=  %>">
+  </div>
+  <div class="form-group">
+      <label>Phone</label>
+      <input type="text" name="order[phone]" class="form-control" placeholder="Your phone" value="<%=  %>">
+  </div>
+  <div class="form-group">
+      <label>Delivery Adress</label>
+      <textarea type="text" name="order[adress]" class="form-control" placeholder="Delivery adress" value=""><%=  %></textarea>
+  </div>
+  <button type="submit" class="btn btn-success">Place Order</button>
+</form>
