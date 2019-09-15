@@ -58,3 +58,8 @@ post '/place_order' do
 
 	erb "Order accepted"
 end
+
+get '/all_orders' do
+	@all_orders = Order.order 'id DESC'
+	erb :all_orders
+end
