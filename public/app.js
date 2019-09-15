@@ -61,3 +61,11 @@ function check_orders() {
     }
     return orders;
 }
+
+/*
+function remove_item(id) {
+    window.localStorage.removeItem(window.localStorage.key(id));
+    
+    update_orders_input();
+    update_orders_button();
+}*/
