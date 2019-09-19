@@ -56,7 +56,7 @@ post '/place_order' do
 	into_db = Order.new params[:order]
 	into_db.save
 
-	erb "Order accepted"
+	erb :order_placed
 end
 
 get '/all_orders' do
