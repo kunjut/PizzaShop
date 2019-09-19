@@ -72,5 +72,8 @@ function remove_item(id) {
 */
 
 function cancel_order() {
+    window.localStorage.clear();
+    update_orders_input();
+    update_orders_button();
     return false;
 }
